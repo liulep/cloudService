@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        username: nacos
+        password: nacos
+        server-addr: nacos.yueue.top
+        file-extension: yaml
+        group: PRODUCT_GROUP
+        namespace: 750b7c7b-9271-4e07-bb37-f6930f0b1a5c
+        shared-configs:
+          - data-id: nacos-config.yml
+            group: CONFIG_GROUP
+            refresh: true
+          - data-id: route-dynamic-config.yml
+            group: CONFIG_GROUP
+            refresh: true
+          - data-id: route-register-config.yml
+            group: CONFIG_GROUP
+            refresh: true
+          - data-id: database-config.yml
+            group: CONFIG_GROUP
+            refresh: true
+          - data-id: mybatis-config.yml
+            group: CONFIG_GROUP
+            refresh: true
+          - data-id: redis-config.yml
+            group: CONFIG_GROUP
+            refresh: true

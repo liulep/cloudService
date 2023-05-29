@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: productService
+  profiles:
+    active: @profiles.active@
