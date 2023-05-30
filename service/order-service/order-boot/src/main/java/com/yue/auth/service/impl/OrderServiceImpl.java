@@ -41,15 +41,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         if(ObjectUtils.isEmpty(currentUser)){
             throw new YueException("用户不存在");
         }
-        User user = restTemplate.getForObject("http://127.0.0.1:8082/user/get/" + currentUser.getUserId(), User.class);
-        if(ObjectUtils.isEmpty(user)){
+        R<User> userResult = restTemplate.getForObject("http://userService/user/get/" + currentUser.getUserId(), R.class);
+        if(ObjectUtils.isEmpty(userResult)){
             throw new YueException("未获取到用户信息");
         }
+        User user= userResult.getData();
         //获取商品信息
-        Product product = restTemplate.getForObject("http://127.0.0.1:8083/product/get/" + param.getPid(), Product.class);
-        if(ObjectUtils.isEmpty(product)){
+        R<Product> productResult = restTemplate.getForObject("http://productService/product/get/" + param.getPid(), R.class);
+        if(ObjectUtils.isEmpty(productResult)){
             throw new YueException("未获取到商品信息");
         }
+        Product product = productResult.getData();
         if(param.getStock() > product.getProStack()){
             throw new YueException("商品库存不足");
         }
@@ -76,7 +78,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         ProductStockParam productStockParam = new ProductStockParam();
         productStockParam.setPid(param.getPid());
         productStockParam.setCount(param.getStock());
-        R<Product> r = restTemplate.postForObject("http://localhost:8083/product/update_count", productStockParam, R.class);
+        R<Product> r = restTemplate.postForObject("http://productService/product/update_count", productStockParam, R.class);
         return r != null && r.getCode() == HttpStatus.OK.value();
     }
 }

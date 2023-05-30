@@ -28,6 +28,8 @@ public class ResultResponseHandler implements ResponseBodyAdvice<Object> {
             return R.ok(JSON.toJSONString(s));
         }else if(body instanceof Error error){
             return R.error().message(error.getMessage()).code(error.getCode());
+        }else if(body instanceof R){
+            return body;
         }
         return R.ok(body);
     }
