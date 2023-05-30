@@ -54,6 +54,11 @@
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.yue</groupId>
+            <artifactId>redis-cache-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

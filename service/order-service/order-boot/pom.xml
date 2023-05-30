@@ -72,6 +72,11 @@
             <groupId>com.yue</groupId>
             <artifactId>alibaba-sentinel-cloud-starter</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.yue</groupId>
+            <artifactId>repeatable-commit-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

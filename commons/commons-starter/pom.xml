@@ -23,6 +23,7 @@
         <module>route-dynamic</module>
         <module>route-register</module>
         <module>authorization-server</module>
+        <module>repeatable-commit</module>
     </modules>
 
     <properties>
