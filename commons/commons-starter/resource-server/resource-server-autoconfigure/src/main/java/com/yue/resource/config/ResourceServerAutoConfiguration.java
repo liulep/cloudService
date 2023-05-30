@@ -72,6 +72,7 @@ public class ResourceServerAutoConfiguration {
                                 .accessDeniedHandler(accessDeniedHandler())
                                 .authenticationEntryPoint(authenticationEntryPoint())
                 )
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .exceptionHandling(ex ->
                         ex.authenticationEntryPoint(authenticationEntryPoint())
                                 .accessDeniedHandler(accessDeniedHandler())

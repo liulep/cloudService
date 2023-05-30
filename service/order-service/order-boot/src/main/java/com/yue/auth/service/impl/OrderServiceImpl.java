@@ -41,12 +41,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         if(ObjectUtils.isEmpty(currentUser)){
             throw new YueException("用户不存在");
         }
-        User user = restTemplate.getForObject("http://localhost:8082/user/get/" + currentUser.getUserId(), User.class);
+        User user = restTemplate.getForObject("http://127.0.0.1:8082/user/get/" + currentUser.getUserId(), User.class);
         if(ObjectUtils.isEmpty(user)){
             throw new YueException("未获取到用户信息");
         }
         //获取商品信息
-        Product product = restTemplate.getForObject("http://localhost:8083/product/get/" + param.getPid(), Product.class);
+        Product product = restTemplate.getForObject("http://127.0.0.1:8083/product/get/" + param.getPid(), Product.class);
         if(ObjectUtils.isEmpty(product)){
             throw new YueException("未获取到商品信息");
         }

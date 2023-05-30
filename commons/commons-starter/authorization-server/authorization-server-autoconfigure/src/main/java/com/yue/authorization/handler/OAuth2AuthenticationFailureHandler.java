@@ -23,7 +23,8 @@ public class OAuth2AuthenticationFailureHandler implements AuthenticationFailure
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpStatus.BAD_REQUEST.value());
         PrintWriter writer = response.getWriter();
-        writer.write(JSON.toJSONString(R.setResult(ResultCodeEnum.ERROR)));
+        writer.write(JSON.toJSONString(R.setResult(ResultCodeEnum.ERROR)
+                .message(ResultCodeEnum.USERNAME_OR_PASSWORD_ERROR.getMessage())));
         writer.close();
     }
 }
