@@ -35,12 +35,12 @@
 
         <dependency>
             <groupId>com.yue</groupId>
-            <artifactId>user-core</artifactId>
+            <artifactId>user-api</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.yue</groupId>
-            <artifactId>product-core</artifactId>
+            <artifactId>product-api</artifactId>
         </dependency>
 
         <dependency>

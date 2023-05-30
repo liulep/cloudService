@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yue.auth.mapper.ProductMapper">
+<mapper namespace="com.yue.product.mapper.ProductMapper">
 
     <update id="updateProductStockById">
-        update product set pro_stock = pro_stack - #{count} where id = #{id}
+        update product set pro_stock = pro_stock - #{count} where id = #{id}
     </update>
 </mapper>
