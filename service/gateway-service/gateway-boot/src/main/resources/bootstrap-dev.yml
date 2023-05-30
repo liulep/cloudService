@@ -2,12 +2,12 @@ spring:
   cloud:
     nacos:
       config:
-        username: nacos
-        password: nacos
-        server-addr: 127.0.0.1:8848
+        username: @nacos.username@
+        password: @nacos.password@
+        server-addr: @nacos.addr@
         file-extension: yaml
         group: GATEWAY_GROUP
-        namespace: 2a1b197a-bb27-4f3f-9c05-2f96b8023fb3
+        namespace: @nacos.namespace@
         shared-configs:
           - data-id: nacos-config.yml
             group: CONFIG_GROUP

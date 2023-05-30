@@ -3,26 +3,116 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/commons/commons-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-nacos/alibaba-nacos-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-nacos/alibaba-nacos-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-nacos/alibaba-nacos-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-nacos/alibaba-nacos-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-nacos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-nacos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-sentinel/alibaba-sentinel-cloud-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-sentinel/alibaba-sentinel-cloud-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-sentinel/alibaba-sentinel-cloud-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-sentinel/alibaba-sentinel-cloud-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-sentinel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/alibaba-sentinel/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-filter/authorization-fliter-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-filter/authorization-fliter-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-filter/authorization-fliter-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-filter/authorization-fliter-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-filter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-filter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/authorization-server-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/authorization-server-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/authorization-server-cloud-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/authorization-server-cloud-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/open-feign/open-feign-cloud-autoconfigure/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/open-feign/open-feign-cloud-autoconfigure/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/open-feign/open-feign-cloud-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/open-feign/open-feign-cloud-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/open-feign/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/open-feign/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/redis-cache-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/redis-cache-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/redis-cache-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/redis-cache-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-cloud-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-cloud-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resp-return/resp-return-boot-autoconfigure/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resp-return/resp-return-boot-autoconfigure/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resp-return/resp-return-boot-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resp-return/resp-return-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resp-return/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resp-return/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-dynamic/route-dynamic-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-dynamic/route-dynamic-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-dynamic/route-dynamic-cloud-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-dynamic/route-dynamic-cloud-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-dynamic/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-dynamic/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-register/route-register-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-register/route-register-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-register/route-register-cloud-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-register/route-register-cloud-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-register/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/route-register/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/auth-service/auth-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/auth-service/auth-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/auth-service/auth-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/auth-service/auth-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/auth-service/auth-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/auth-service/auth-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/auth-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/gateway-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/order-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/order-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/order-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/order-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/order-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/order-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/order-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/product-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/product-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/product-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/product-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/product-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/product-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/product-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/user-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/user-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/user-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/user-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/user-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/user-service/user-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

@@ -37,6 +37,10 @@
             </activation>
             <properties>
                 <profiles.active>dev</profiles.active>
+                <nacos.addr>127.0.0.1:8848</nacos.addr>
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <nacos.namespace>2a1b197a-bb27-4f3f-9c05-2f96b8023fb3</nacos.namespace>
             </properties>
         </profile>
 
@@ -44,6 +48,10 @@
             <id>prod</id>
             <properties>
                 <profiles.active>prod</profiles.active>
+                <nacos.addr>nacos.yueue.top</nacos.addr>
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <nacos.namespace>750b7c7b-9271-4e07-bb37-f6930f0b1a5c</nacos.namespace>
             </properties>
         </profile>
 
@@ -51,6 +59,10 @@
             <id>test</id>
             <properties>
                 <profiles.active>test</profiles.active>
+                <nacos.addr>127.0.0.1:8848</nacos.addr>
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <nacos.namespace>e2e9dbab-5e16-456f-93a8-efc4693c649d</nacos.namespace>
             </properties>
         </profile>
     </profiles>
