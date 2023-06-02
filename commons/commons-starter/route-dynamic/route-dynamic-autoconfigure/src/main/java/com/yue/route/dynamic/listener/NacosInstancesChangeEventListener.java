@@ -11,6 +11,7 @@ import com.yue.route.dynamic.properties.NacosDynamicProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
 import org.springframework.cloud.gateway.route.CachingRouteLocator;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
@@ -51,8 +52,8 @@ public class NacosInstancesChangeEventListener extends Subscriber<InstancesChang
                     .filter(route -> !route.getId().equals(event.getServiceName()))
                     .toList();
             //清空路由信息
-            this.routeLocator.refresh();
-            log.info("route => {}",newRouteDefinitions);
+            this.routeLocator.refresh().subscribe();
+            this.routeLocator.onApplicationEvent(new RefreshRoutesEvent(this));
             //删除nacos中该实例配置
             this.pushConfig(JSON.toJSONString(newRouteDefinitions));
         }
