@@ -1,1 +1,2 @@
-com.yue.route.dynamic.config.RouteDynamicAutoConfiguration
+com.yue.route.dynamic.config.GlobalRouteDynamicAutoConfiguration
+com.yue.route.dynamic.config.RedisRouteDynamicAutoConfiguration

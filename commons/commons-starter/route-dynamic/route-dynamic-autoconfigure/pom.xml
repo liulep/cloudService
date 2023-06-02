@@ -57,6 +57,22 @@
             <artifactId>commons-core</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>com.yue</groupId>
+            <artifactId>redis-cache-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-redis</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

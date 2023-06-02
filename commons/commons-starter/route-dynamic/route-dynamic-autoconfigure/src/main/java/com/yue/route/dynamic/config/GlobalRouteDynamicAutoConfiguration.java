@@ -12,26 +12,34 @@ import com.yue.route.dynamic.service.DynamicRouteServiceImpl;
 import com.yue.route.dynamic.service.NacosRouteDefinitionLocator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.gateway.route.*;
+import org.springframework.cloud.gateway.config.GatewayAutoConfiguration;
+import org.springframework.cloud.gateway.route.CachingRouteLocator;
+import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
+import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
 import java.util.Properties;
 
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
+@AutoConfiguration(
+        after = GatewayAutoConfiguration.class
+)
 @EnableConfigurationProperties(value = NacosDynamicProperties.class)
-public class RouteDynamicAutoConfiguration {
+public class GlobalRouteDynamicAutoConfiguration {
 
     private final NacosDynamicProperties nacosDynamicProperties;
     private final ApplicationEventPublisher applicationEventPublisher;
 
     @Bean
+    @ConditionalOnMissingBean
     public ConfigService configService() throws NacosException {
         Properties properties = new Properties();
         properties.put(NacosConstant.SERVER_ADDR,nacosDynamicProperties.getServerAddr());
@@ -42,21 +50,23 @@ public class RouteDynamicAutoConfiguration {
         return NacosFactory.createConfigService(properties);
     }
 
+    //操作动态路由
+    //redis存在时使用redis做缓存
+    //redis不存在时使用内存做缓存
+    @Bean
+    @ConditionalOnBean(value = {RouteDefinitionRepository.class, ConfigService.class})
+    public DynamicRouteServiceImpl dynamicRouteService(ConfigService configService,
+                                                            RouteDefinitionRepository repository){
+        DynamicRouteServiceImpl dynamicRouteService = new DynamicRouteServiceImpl(repository);
+        dynamicRouteService.setApplicationEventPublisher(this.applicationEventPublisher);
+        return dynamicRouteService;
+    }
+
     //从nacos中获取路由配置，并将路由进行缓存
     @Bean
     @ConditionalOnBean(value = {ConfigService.class})
     public NacosRouteDefinitionLocator nacosRouteDefinitionRepository(ConfigService configService){
         return new NacosRouteDefinitionLocator(configService,nacosDynamicProperties);
-    }
-
-    //动态路由(增删改)
-    @Bean
-    @ConditionalOnBean(value = RouteDefinitionRepository.class)
-    public DynamicRouteServiceImpl dynamicRouteService(ConfigService configService,
-                                                       RouteDefinitionRepository repository){
-        DynamicRouteServiceImpl dynamicRouteService = new DynamicRouteServiceImpl(repository);
-        dynamicRouteService.setApplicationEventPublisher(this.applicationEventPublisher);
-        return dynamicRouteService;
     }
 
     //监听nacos路由配置是否发生改变
@@ -70,15 +80,15 @@ public class RouteDynamicAutoConfiguration {
 
     //监听nacos实例状态
     @Bean
-    @ConditionalOnBean(value = {RouteLocator.class,RouteDefinitionLocator.class})
+    @ConditionalOnBean(value = {RouteLocator.class})
     public NacosInstancesChangeEventListener nacosInstancesChangeEventListener(CachingRouteLocator cachingRouteLocator,
                                                                                ConfigService configService,
-                                                                               DynamicRouteServiceImpl routeService){
+                                                                               RouteDefinitionRepository repository){
         //监听nacos实例时监听nacos配置文件
         this.applicationEventPublisher.publishEvent(new NacosRoutesEvent(this,
                 this.nacosDynamicProperties.getDataId(),
                 this.nacosDynamicProperties.getGroup()));
         log.info("开始监听nacos所有实例...");
-        return new NacosInstancesChangeEventListener(routeService,cachingRouteLocator,configService,nacosDynamicProperties);
+        return new NacosInstancesChangeEventListener(repository,cachingRouteLocator,configService,nacosDynamicProperties);
     }
 }

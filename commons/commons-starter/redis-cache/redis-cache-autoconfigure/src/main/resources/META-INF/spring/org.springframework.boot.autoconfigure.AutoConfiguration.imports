@@ -1,1 +1,2 @@
-com.yue.redis.config.RedisAutoConfiguration
+com.yue.redis.config.RedisCacheAutoConfiguration
+com.yue.redis.config.RedisReactiveCacheAutoConfiguration

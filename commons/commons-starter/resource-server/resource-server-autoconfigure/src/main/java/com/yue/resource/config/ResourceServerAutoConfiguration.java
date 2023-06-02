@@ -1,7 +1,7 @@
 package com.yue.resource.config;
 
 import com.yue.common.constant.constnt.TokenConstant;
-import com.yue.redis.config.RedisAutoConfiguration;
+import com.yue.redis.config.RedisCacheAutoConfiguration;
 import com.yue.resource.filter.CorsFilter;
 import com.yue.resource.filter.GlobalAuthenticationFilter;
 import com.yue.resource.handler.GlobalErrorExceptionHandler;
@@ -45,7 +45,7 @@ import java.time.Duration;
 @EnableWebFluxSecurity
 @RequiredArgsConstructor
 @EnableConfigurationProperties(value = WhitelistProperties.class)
-@AutoConfigureAfter(value = RedisAutoConfiguration.class)
+@AutoConfigureAfter(value = RedisCacheAutoConfiguration.class)
 public class ResourceServerAutoConfiguration {
 
     private final String issuerUri="http://127.0.0.1:8081/issuer/yueue";

@@ -1,9 +1,6 @@
 server:
   port: 8080
 spring:
-  main:
-    allow-bean-definition-overriding: true
-    allow-circular-references: true
   application:
     name: gatewayService
   profiles:

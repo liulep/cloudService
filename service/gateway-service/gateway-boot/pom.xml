@@ -50,11 +50,6 @@
 
         <dependency>
             <groupId>com.yue</groupId>
-            <artifactId>redis-cache-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.yue</groupId>
             <artifactId>alibaba-sentinel-cloud-starter</artifactId>
         </dependency>
 

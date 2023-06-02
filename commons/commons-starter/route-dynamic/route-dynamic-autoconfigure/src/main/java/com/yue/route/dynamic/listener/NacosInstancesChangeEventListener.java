@@ -8,27 +8,27 @@ import com.alibaba.nacos.common.notify.Event;
 import com.alibaba.nacos.common.notify.NotifyCenter;
 import com.alibaba.nacos.common.notify.listener.Subscriber;
 import com.yue.route.dynamic.properties.NacosDynamicProperties;
-import com.yue.route.dynamic.service.DynamicRouteServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.route.CachingRouteLocator;
 import org.springframework.cloud.gateway.route.RouteDefinition;
+import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 
 import java.util.List;
 
 @Slf4j
 public class NacosInstancesChangeEventListener extends Subscriber<InstancesChangeEvent> {
-    private final DynamicRouteServiceImpl routeService;
+    private final RouteDefinitionRepository repository;
     private final CachingRouteLocator routeLocator;
     private final ConfigService configService;
     private final NacosDynamicProperties properties;
 
-    public NacosInstancesChangeEventListener(DynamicRouteServiceImpl routeService,
+    public NacosInstancesChangeEventListener(RouteDefinitionRepository repository ,
                                              CachingRouteLocator routeLocator,
                                              ConfigService configService,
                                              NacosDynamicProperties properties){
-        this.routeService=routeService;
+        this.repository=repository;
         this.routeLocator=routeLocator;
         this.configService=configService;
         this.properties=properties;
@@ -41,7 +41,7 @@ public class NacosInstancesChangeEventListener extends Subscriber<InstancesChang
             log.info("{}实例状态更新，Gateway开始刷新缓存", event.getServiceName());
         }
         //获取所有实例
-        List<RouteDefinition> routeDefinitions = this.routeService.getRoutes();
+        List<RouteDefinition> routeDefinitions = this.repository.getRouteDefinitions().buffer().blockFirst();
         //更新实例缓存
         if(ObjectUtils.isNotEmpty(routeDefinitions)
                 && StringUtils.isNotBlank(event.getServiceName())

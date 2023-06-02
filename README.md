@@ -130,3 +130,7 @@
 > 2023-06-02
 > 
 > 添加服务下线后清除缓存防止5XX
+
+> 2023-06-03
+> 
+> 使用ReactiveRedis作为SpringCloudGateway路由缓存(引入redis依赖，路由缓存自动切换到redis中)
