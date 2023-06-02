@@ -7,9 +7,9 @@
 |authorization-filter|下游服务用户信息解析配置|
 |authorization-server	|认证服务器配置|
 |mybatis-plus|mybatis配置|
-|nacos-config|nacos配置|
-|redis-config|redis配置|
-|resource-gateway|网关层面的资源服务器配置|
+|alibaba-nacos|nacos配置|
+|redis-cache|redis配置|
+|resource-server|网关层面的资源服务器配置|
 |resp-return|消息返回配置|
 |route-dynamic|动态路由配置|
 |route-register|自动注册服务路由|
@@ -120,3 +120,13 @@
 > 2023-05-29
 > 
 > 更新项目结构
+> 
+> 各个服务接入openfeign
+
+> 2023-05-30
+> 
+> 添加禁止重复提交事件
+
+> 2023-06-02
+> 
+> 添加服务下线后清除缓存防止5XX

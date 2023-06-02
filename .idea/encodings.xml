@@ -45,6 +45,12 @@
     <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/redis-cache-boot-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/redis-cache/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/repeatable-commit/repeatable-commit-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/repeatable-commit/repeatable-commit-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/repeatable-commit/repeatable-commit-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/repeatable-commit/repeatable-commit-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/repeatable-commit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/repeatable-commit/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-autoconfigure/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-autoconfigure/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/resource-server/resource-server-cloud-starter/src/main/java" charset="UTF-8" />

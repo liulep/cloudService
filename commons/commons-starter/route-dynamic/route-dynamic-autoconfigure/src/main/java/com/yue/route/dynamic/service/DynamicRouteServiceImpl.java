@@ -1,5 +1,10 @@
 package com.yue.route.dynamic.service;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.config.listener.AbstractListener;
+import com.alibaba.nacos.api.exception.NacosException;
+import com.yue.route.dynamic.properties.NacosDynamicProperties;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
@@ -79,5 +84,10 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
     // 刷新路由
     public void refreshRoute(){
         this.publisher.publishEvent(new RefreshRoutesEvent(this));
+    }
+
+    //获取所有路由
+    public List<RouteDefinition> getRoutes(){
+        return repository.getRouteDefinitions().buffer().blockFirst();
     }
 }

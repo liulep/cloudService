@@ -22,33 +22,16 @@ public class NacosRouteDefinitionLocator implements RouteDefinitionLocator {
     private final Map<String, RouteDefinition> routes = synchronizedMap(new LinkedHashMap<String, RouteDefinition>());
     private final NacosDynamicProperties nacosDynamicProperties;
     private final ConfigService configService;
-//    private final DynamicRouteServiceImpl dynamicRouteService;
-    private DynamicRouteServiceImpl dynamicRouteService;
-
-    public NacosRouteDefinitionLocator(ConfigService configService,
-                                       NacosDynamicProperties properties,
-                                       DynamicRouteServiceImpl dynamicRouteService){
-        this.configService=configService;
-        this.nacosDynamicProperties=properties;
-        this.dynamicRouteService=dynamicRouteService;
-        initRouting();
-    }
 
     public NacosRouteDefinitionLocator(ConfigService configService,
                                        NacosDynamicProperties properties){
         this.configService=configService;
         this.nacosDynamicProperties=properties;
-        initRouting();
-    }
-
-
-    public void setDynamicRouteService(DynamicRouteServiceImpl dynamicRouteService){
-        this.dynamicRouteService=dynamicRouteService;
+        this.initRouting();
     }
 
     public void initRouting(){
         try {
-//            log.info("初始化前 routes => {}",routes);
             String config = configService.getConfig(nacosDynamicProperties.getDataId(), nacosDynamicProperties.getGroup(), NacosDynamicProperties.DEFAULT_TIME_OUT);
             List<RouteDefinition> routes = JSON.parseArray(config, RouteDefinition.class);
             if(!routes.isEmpty()) {
@@ -57,26 +40,6 @@ public class NacosRouteDefinitionLocator implements RouteDefinitionLocator {
                 });
             }
         } catch (NacosException e) {
-            throw new RuntimeException(e);
-        }
-//        log.info("初始化后 routes => {}",routes);
-        dynamicByNacosListener();
-    }
-
-    public void dynamicByNacosListener() {
-        try {
-            configService.addListener(nacosDynamicProperties.getDataId(), nacosDynamicProperties.getGroup(), new AbstractListener() {
-                @Override
-                public void receiveConfigInfo(String config) {
-                    synchronized (AbstractListener.class){
-//                        log.info("监听前 routes => {}",routes);
-                        List<RouteDefinition> routes = JSON.parseArray(config, RouteDefinition.class);
-                        dynamicRouteService.updateByList(routes);
-//                        log.info("监听后 routes => {}" ,routes);
-                    }
-                }
-            });
-        }catch (NacosException e){
             throw new RuntimeException(e);
         }
     }

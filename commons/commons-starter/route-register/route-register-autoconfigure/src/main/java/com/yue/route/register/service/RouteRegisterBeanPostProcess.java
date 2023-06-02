@@ -33,8 +33,8 @@ public class RouteRegisterBeanPostProcess implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        this.initConfigService();
-        this.getRoutes();
+        this.configService=this.initConfigService();
+        this.routes = this.getRoutes();
         this.init();
     }
 
@@ -43,12 +43,12 @@ public class RouteRegisterBeanPostProcess implements ApplicationRunner {
         RouteDefinition exist = isExist(routeProperties.getServerName());
         if(ObjectUtils.isEmpty(exist)){
             RouteDefinition routeDefinition=new RouteDefinition();
-            createRoute(routeProperties.getServerName(),routeDefinition);
-            pushConfig(nacosProperties.getDataId(), nacosProperties.getGroup(), JSON.toJSONString(this.routes));
-        } else if (ObjectUtils.isNotEmpty(exist)){
+            this.createRoute(routeProperties.getServerName(),routeDefinition);
+            this.pushConfig(JSON.toJSONString(this.routes));
+        }else if (ObjectUtils.isNotEmpty(exist)){
             this.routes.remove(exist);
             createRoute(exist.getId(),exist);
-            pushConfig(nacosProperties.getDataId(), nacosProperties.getGroup(), JSON.toJSONString(this.routes));
+            this.pushConfig(JSON.toJSONString(this.routes));
         }
     }
 
@@ -69,18 +69,23 @@ public class RouteRegisterBeanPostProcess implements ApplicationRunner {
     }
 
     // 初始化nacosConfigService
-    public void initConfigService(){
+    public ConfigService initConfigService(){
         try {
             Properties properties = new Properties();
             properties.put(NacosConstant.SERVER_ADDR,nacosProperties.getServerAddr());
             properties.put(NacosConstant.NAMESPACE,nacosProperties.getNamespace());
             properties.put(NacosConstant.USERNAME,nacosProperties.getUsername());
             properties.put(NacosConstant.PASSWORD,nacosProperties.getPassword());
-            configService=NacosFactory.createConfigService(properties);
+            return NacosFactory.createConfigService(properties);
         }catch (NacosException e){
             log.info("获取nacos配置失败");
             throw new RuntimeException("init nacos config error");
         }
+    }
+
+    //发布配置
+    public void pushConfig(String content){
+        this.pushConfig(nacosProperties.getDataId(), nacosProperties.getGroup(), content);
     }
 
     // 发布配置
@@ -106,14 +111,19 @@ public class RouteRegisterBeanPostProcess implements ApplicationRunner {
     }
 
     // 获取所有路由
-    public void getRoutes(){
+    public List<RouteDefinition> getRoutes(){
         try {
             String config = configService.getConfig(nacosProperties.getDataId(), nacosProperties.getGroup(), NacosProperties.DEFAULT_TIME_OUT);
-            this.routes= JSON.parseArray(config, RouteDefinition.class);
+            return JSON.parseArray(config, RouteDefinition.class);
         } catch (NacosException e) {
             log.info("获取配置失败");
             throw new RuntimeException(e);
         }
+    }
+
+    //获取存在本地的缓存路由
+    public List<RouteDefinition> getCacheRoutes(){
+        return this.routes;
     }
 
     //进行拼接服务路由Id
