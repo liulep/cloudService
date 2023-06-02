@@ -71,8 +71,7 @@ public class RouteDynamicAutoConfiguration {
     //监听nacos实例状态
     @Bean
     @ConditionalOnBean(value = {RouteLocator.class,RouteDefinitionLocator.class})
-    public NacosInstancesChangeEventListener nacosInstancesChangeEventListener(RouteDefinitionRepository repository,
-                                                                               CachingRouteLocator cachingRouteLocator,
+    public NacosInstancesChangeEventListener nacosInstancesChangeEventListener(CachingRouteLocator cachingRouteLocator,
                                                                                ConfigService configService,
                                                                                DynamicRouteServiceImpl routeService){
         //监听nacos实例时监听nacos配置文件
@@ -80,7 +79,6 @@ public class RouteDynamicAutoConfiguration {
                 this.nacosDynamicProperties.getDataId(),
                 this.nacosDynamicProperties.getGroup()));
         log.info("开始监听nacos所有实例...");
-        List<RouteDefinition> routeDefinitions = repository.getRouteDefinitions().buffer().blockFirst();
         return new NacosInstancesChangeEventListener(routeService,cachingRouteLocator,configService,nacosDynamicProperties);
     }
 }
