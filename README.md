@@ -134,3 +134,7 @@
 > 2023-06-03
 > 
 > 使用ReactiveRedis作为SpringCloudGateway路由缓存(引入redis依赖，路由缓存自动切换到redis中)
+
+> 2023-06-08
+>
+> 添加自定义认证方式：手机号码+密码方式 grant_type:phone,username:手机号,password:密码
