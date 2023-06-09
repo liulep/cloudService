@@ -27,6 +27,12 @@
     <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/authorization-server-cloud-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/authorization-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/file-storage/file-storage-autoconfigure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/file-storage/file-storage-autoconfigure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/file-storage/file-storage-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/file-storage/file-storage-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/file-storage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/commons-starter/file-storage/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-autoconfigure/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-autoconfigure/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons/commons-starter/mybatis-plus/mybatis-plus-boot-starter/src/main/java" charset="UTF-8" />

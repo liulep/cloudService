@@ -17,9 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 //从 HttpServletRequest 中提取手机号登录亲求到AuthorizationPhoneAuthenticationToken的使用
-public final class OAuth2PhoneAuthenticationConverter implements AuthenticationConverter {
+public final class OAuth2PhonePasswordAuthenticationConverter implements AuthenticationConverter {
 
-    public OAuth2PhoneAuthenticationConverter() {
+    public OAuth2PhonePasswordAuthenticationConverter() {
     }
 
     @Override

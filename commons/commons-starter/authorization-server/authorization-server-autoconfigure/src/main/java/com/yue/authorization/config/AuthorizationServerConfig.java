@@ -6,7 +6,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
-import com.yue.authorization.converter.OAuth2PhoneAuthenticationConverter;
+import com.yue.authorization.converter.OAuth2PhonePasswordAuthenticationConverter;
 import com.yue.authorization.converter.SystemClientAuthenticationConverter;
 import com.yue.authorization.core.constnt.OAuth2SystemParameterNames;
 import com.yue.authorization.core.enums.AuthorizationGrantTypeEnum;
@@ -14,7 +14,7 @@ import com.yue.authorization.core.enums.ClientAuthenticationMethodEnum;
 import com.yue.authorization.core.utils.OAuth2ConfigureUtils;
 import com.yue.authorization.handler.OAuth2AuthenticationFailureHandler;
 import com.yue.authorization.handler.OAuth2AuthenticationSuccessHandler;
-import com.yue.authorization.provider.OAuth2AuthorizationPhoneAuthenticationProvider;
+import com.yue.authorization.provider.OAuth2PhonePasswordAuthenticationProvider;
 import com.yue.authorization.provider.SystemClientAuthenticationProvider;
 import com.yue.authorization.service.SmsCodeUserDetailService;
 import com.yue.authorization.service.UserInfo;
@@ -267,14 +267,14 @@ public class AuthorizationServerConfig {
 
     //自定义token端点预处理器
     public AuthenticationConverter getTokenAuthenticationConverter(){
-        return new OAuth2PhoneAuthenticationConverter();
+        return new OAuth2PhonePasswordAuthenticationConverter();
     }
 
     //自定义token端点主处理器
     public AuthenticationProvider getTokenAuthenticationProvider(HttpSecurity http){
         OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator = OAuth2ConfigureUtils.getTokenGenerator(http);
         SmsCodeUserDetailService userService = OAuth2ConfigureUtils.getBean(http, SmsCodeUserDetailService.class);
-        return new OAuth2AuthorizationPhoneAuthenticationProvider(userService,tokenGenerator);
+        return new OAuth2PhonePasswordAuthenticationProvider(userService,tokenGenerator);
     }
 
     //自定义未登录返回信息

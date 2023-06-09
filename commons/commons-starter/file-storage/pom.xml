@@ -5,26 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yue</groupId>
-        <artifactId>commons</artifactId>
+        <artifactId>commons-starter</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>commons-starter</artifactId>
+    <artifactId>file-storage</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>resp-return</module>
-        <module>open-feign</module>
-        <module>alibaba-sentinel</module>
-        <module>authorization-filter</module>
-        <module>mybatis-plus</module>
-        <module>alibaba-nacos</module>
-        <module>redis-cache</module>
-        <module>resource-server</module>
-        <module>route-dynamic</module>
-        <module>route-register</module>
-        <module>authorization-server</module>
-        <module>repeatable-commit</module>
-        <module>file-storage</module>
+        <module>file-storage-autoconfigure</module>
+        <module>file-storage-boot-starter</module>
     </modules>
 
     <properties>

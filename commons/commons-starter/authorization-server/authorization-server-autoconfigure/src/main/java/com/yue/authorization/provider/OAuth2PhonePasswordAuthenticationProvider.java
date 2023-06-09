@@ -31,15 +31,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 //添加一个用于认证 AuthorizationGrantAuthenticationToken 的 AuthenticationProvider
-public class OAuth2AuthorizationPhoneAuthenticationProvider implements AuthenticationProvider {
+public class OAuth2PhonePasswordAuthenticationProvider implements AuthenticationProvider {
     private static final OAuth2TokenType ID_TOKEN_TOKEN_TYPE =
             new OAuth2TokenType(OidcParameterNames.ID_TOKEN);
     private final OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator;
     private final SmsCodeUserDetailService userDetailService;
     private final PasswordEncoder passwordEncoder;
 
-    public OAuth2AuthorizationPhoneAuthenticationProvider(SmsCodeUserDetailService userDetailService,
-                                                          OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator) {
+    public OAuth2PhonePasswordAuthenticationProvider(SmsCodeUserDetailService userDetailService,
+                                                     OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator) {
         Assert.notNull(tokenGenerator, "tokenGenerator cannot be null");
         Assert.notNull(userDetailService, "userDetailService cannot be null");
         this.tokenGenerator = tokenGenerator;

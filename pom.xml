@@ -27,6 +27,7 @@
         <mybatis.version>3.0.1</mybatis.version>
         <redis.version>3.0.5</redis.version>
         <hutool.version>5.8.18</hutool.version>
+        <oss.version>1.12.484</oss.version>
     </properties>
 
     <profiles>
@@ -106,6 +107,13 @@
                 <version>${hutool.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!--    Amazon S3 SDK   -->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-s3</artifactId>
+                <version>${oss.version}</version>
             </dependency>
 
             <!--Json解析-->
@@ -240,6 +248,12 @@
             <dependency>
                 <groupId>com.yue</groupId>
                 <artifactId>repeatable-commit-boot-starter</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yue</groupId>
+                <artifactId>file-storage-boot-starter</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
