@@ -1,9 +1,13 @@
 package com.yue.commit.service;
 
+import com.alibaba.fastjson2.JSON;
 import com.yue.commit.anno.AvoidRepeatableCommit;
+import com.yue.commit.utils.ReqDeduplicationHelper;
 import com.yue.common.constant.constnt.KeyConstant;
 import com.yue.common.model.entity.YueException;
+import com.yue.common.model.security.LoginUser;
 import com.yue.common.utils.IpUtils;
+import com.yue.common.utils.OauthUtils;
 import com.yue.common.utils.RequestContextUtils;
 import com.yue.common.utils.id.SnowFlakeFactory;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,6 +36,8 @@ public class AvoidRepeatableCommitAspect {
     public Object around(ProceedingJoinPoint point) throws Throwable {
         //获取request
         HttpServletRequest request = RequestContextUtils.getRequest();
+        //获取已登录用户的ID
+        LoginUser user = OauthUtils.getCurrentUser();
         //获取ip地址
         String ip = IpUtils.getIpAddress(request);
         //获取注解
@@ -42,11 +48,16 @@ public class AvoidRepeatableCommitAspect {
         //目标方法
         String methodName = method.getName();
         //得到类加方法
-        String ipKey = String.format("%s#%s", className, methodName);
+        String ipKey = String.format("%s#%s#%s", ip, className, methodName);
+        if(point.getArgs()!= null && point.getArgs().length != 0){
+            //获取参数
+            String args = new ReqDeduplicationHelper().deduplicationParamMD5(JSON.toJSONString(point.getArgs()[0]));
+            ipKey = String.format("%s#%s#%s#%s", ip, className, methodName, args);
+        }
         //得到hashcode
         int hashcode = Math.abs(ipKey.hashCode());
-        String key = String.format("%s:%s_%d", KeyConstant.AVOID_REPEATABLE_COMMIT, ip, hashcode);
-        //key = yue-service:avoid_repeatable_commit_hashcode
+        String key = String.format("%s:uid_%s", KeyConstant.AVOID_REPEATABLE_COMMIT, hashcode);
+        //key = yue-service:uid_7217867821921985
         AvoidRepeatableCommit annotation = method.getAnnotation(AvoidRepeatableCommit.class);
         long timeout = annotation.timeout();
         //设置过期时间,采用setNx互斥操作

@@ -138,7 +138,7 @@
 
 > 2023-06-08
 >
-> 添加自定义认证方式：手机号码+密码方式 grant_type:phone,username:手机号,password:密码
+> 添加自定义认证方式(OAuth2PhonePasswordAuthorization)：手机号码+密码方式 grant_type:phone,username:手机号,password:密码
 >
 > maven配置多个中央仓库(在另外一个仓库中没有的jar包会自动切换仓库去寻找)
 >
@@ -348,5 +348,8 @@
 > </settings>
 > ```
 >
-> 配置Amazon S3(网上流行的对象存储服务比如MInio,阿里云OSS,腾讯云COS都提供了对Amazon S3访问处理的API)
+> 配置Amazon S3(网上流行的对象存储服务比如MInio,阿里云OSS,腾讯云COS都提供了对Amazon S3协议访问处理的API)
 
+> 2023-06-09
+>
+> 创建file-service
