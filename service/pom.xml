@@ -17,6 +17,7 @@
         <module>product-service</module>
         <module>order-service</module>
         <module>user-service</module>
+        <module>file-service</module>
     </modules>
 
     <properties>
@@ -66,6 +67,18 @@
             <dependency>
                 <groupId>com.yue</groupId>
                 <artifactId>order-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yue</groupId>
+                <artifactId>file-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yue</groupId>
+                <artifactId>file-core</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>

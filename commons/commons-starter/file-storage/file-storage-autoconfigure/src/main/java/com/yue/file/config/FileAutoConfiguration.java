@@ -1,19 +1,20 @@
 package com.yue.file.config;
-
-import com.amazonaws.ClientConfiguration;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.client.builder.AwsClientBuilder;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
 import com.yue.file.properties.OssProperties;
-import com.yue.file.service.impl.OSSTemplateImpl;
-import com.yue.file.service.intf.OSSTemplate;
+import com.yue.file.service.impl.FileTemplateImpl;
+import com.yue.file.service.impl.MultipartTemplateImpl;
+import com.yue.file.service.intf.AbstractTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.S3Configuration;
+
+import java.net.URI;
 
 @Configuration
 @EnableConfigurationProperties(OssProperties.class)
@@ -21,29 +22,28 @@ public class FileAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public AmazonS3 amazonS3(OssProperties ossProperties){
-        //配置客户端
-        ClientConfiguration clientConfiguration = new ClientConfiguration();
-        clientConfiguration.setMaxConnections(ossProperties.getMaxConnections());
-        //配置端点
-        AwsClientBuilder.EndpointConfiguration endpointConfiguration =
-                new AwsClientBuilder.EndpointConfiguration(ossProperties.getEndpoint(), ossProperties.getRegion());
-        //配置凭证
-        BasicAWSCredentials basicAWSCredentials = new BasicAWSCredentials(ossProperties.getAccessKey(), ossProperties.getSecretKey());
-        AWSStaticCredentialsProvider awsStaticCredentialsProvider = new AWSStaticCredentialsProvider(basicAWSCredentials);
-        //amazonS3Client客户端
-        return AmazonS3Client.builder()
-                .withEndpointConfiguration(endpointConfiguration)
-                .withClientConfiguration(clientConfiguration)
-                .withCredentials(awsStaticCredentialsProvider)
-                .disableChunkedEncoding()
-                .withPathStyleAccessEnabled(ossProperties.getPathStyleAccess())
+    public S3Client s3Client(OssProperties ossProperties){
+        return S3Client.builder()
+                .credentialsProvider(StaticCredentialsProvider.create(
+                        AwsBasicCredentials.create(ossProperties.getAccessKey(), ossProperties.getSecretKey())))
+                .region(Region.AWS_CN_GLOBAL)
+                .endpointOverride(URI.create(ossProperties.getEndpoint()))
+                .serviceConfiguration(S3Configuration.builder()
+                        .chunkedEncodingEnabled(ossProperties.getChunkedEncoding())
+                        .pathStyleAccessEnabled(ossProperties.getPathStyleAccess())
+                        .build())
                 .build();
     }
 
     @Bean
-    @ConditionalOnBean(AmazonS3.class)
-    public OSSTemplate ossTemplate(AmazonS3 amazonS3){
-        return new OSSTemplateImpl(amazonS3);
+    @ConditionalOnBean(S3Client.class)
+    public AbstractTemplate fileTemplate(S3Client s3Client){
+        return new FileTemplateImpl(s3Client);
+    }
+
+    @Bean
+    @ConditionalOnBean(S3Client.class)
+    public AbstractTemplate multipartTemplate(S3Client s3Client,OssProperties ossProperties){
+        return new MultipartTemplateImpl(s3Client,ossProperties);
     }
 }

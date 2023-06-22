@@ -27,7 +27,8 @@
         <mybatis.version>3.0.1</mybatis.version>
         <redis.version>3.0.5</redis.version>
         <hutool.version>5.8.18</hutool.version>
-        <oss.version>1.12.484</oss.version>
+        <oss.version>1.12.486</oss.version>
+        <aws.version>2.20.83</aws.version>
     </properties>
 
     <profiles>
@@ -41,6 +42,8 @@
                 <nacos.addr>127.0.0.1:8848</nacos.addr>
                 <nacos.username>nacos</nacos.username>
                 <nacos.password>nacos</nacos.password>
+                <nacos.fileSuffix>yaml</nacos.fileSuffix>
+                <nacos.group>SERVICE_GROUP</nacos.group>
                 <nacos.namespace>2a1b197a-bb27-4f3f-9c05-2f96b8023fb3</nacos.namespace>
             </properties>
         </profile>
@@ -52,6 +55,8 @@
                 <nacos.addr>nacos.yueue.top</nacos.addr>
                 <nacos.username>nacos</nacos.username>
                 <nacos.password>nacos</nacos.password>
+                <nacos.fileSuffix>yaml</nacos.fileSuffix>
+                <nacos.group>SERVICE_GROUP</nacos.group>
                 <nacos.namespace>750b7c7b-9271-4e07-bb37-f6930f0b1a5c</nacos.namespace>
             </properties>
         </profile>
@@ -63,6 +68,8 @@
                 <nacos.addr>127.0.0.1:8848</nacos.addr>
                 <nacos.username>nacos</nacos.username>
                 <nacos.password>nacos</nacos.password>
+                <nacos.fileSuffix>yaml</nacos.fileSuffix>
+                <nacos.group>SERVICE_GROUP</nacos.group>
                 <nacos.namespace>e2e9dbab-5e16-456f-93a8-efc4693c649d</nacos.namespace>
             </properties>
         </profile>
@@ -110,11 +117,24 @@
             </dependency>
 
             <!--    Amazon S3 SDK   -->
+            <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom -->
             <dependency>
                 <groupId>com.amazonaws</groupId>
-                <artifactId>aws-java-sdk-s3</artifactId>
+                <artifactId>aws-java-sdk-bom</artifactId>
                 <version>${oss.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
+
+
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${aws.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
 
             <!--Json解析-->
             <dependency>

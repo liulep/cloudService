@@ -93,6 +93,14 @@
     <file url="file://$PROJECT_DIR$/service/auth-service/auth-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/auth-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/file-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/file-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/file-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/file-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/file-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/file-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/file-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-boot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-boot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service/gateway-service/gateway-core/src/main/java" charset="UTF-8" />

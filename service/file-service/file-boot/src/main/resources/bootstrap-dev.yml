@@ -15,11 +15,12 @@ spring:
             group: CONFIG_GROUP
           - data-id: route-register-config.yml
             group: CONFIG_GROUP
-          - data-id: database-config.yml
-            group: CONFIG_GROUP
-          - data-id: mybatis-config.yml
-            group: CONFIG_GROUP
           - data-id: redis-config.yml
             group: CONFIG_GROUP
           - data-id: sentinel-config.yml
             group: CONFIG_GROUP
+          - data-id: oss-config.yml
+            group: CONFIG_GROUP
+          - data-id: file-config.yml
+            group: CONFIG_GROUP
+            refresh: true

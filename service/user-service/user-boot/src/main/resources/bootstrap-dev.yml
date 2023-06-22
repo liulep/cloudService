@@ -5,8 +5,8 @@ spring:
         username: @nacos.username@
         password: @nacos.password@
         server-addr: @nacos.addr@
-        file-extension: yaml
-        group: USER_GROUP
+        file-extension: @nacos.fileSuffix@
+        group: @nacos.group@
         namespace: @nacos.namespace@
         shared-configs:
           - data-id: nacos-config.yml

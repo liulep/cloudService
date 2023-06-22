@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: fileService
+  profiles:
+    active: @profiles.active@
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1024MB
